@@ -16,7 +16,7 @@ This software is released under the LGPL license
 
 
 
-The plugin interface is based on the [openmmexampleplugin]( by Reginald Francois.
+The plugin interface is based on the [openm_Sqlitefile_plugin] (https://github.com/rfrancois92/OpenMM_SQL_Interface.git) by Reginald Francois.
 
 ## Installation
 
@@ -31,7 +31,7 @@ Locate the OpenMM installation directory, otherwise it will default to `/usr/loc
 Download this plugin package from github:
 
 ```
-git clone https://github.com/....git
+git clone https://github.com/rfrancois92/OpenMM_SQL_Interface.git
 ```
 
 Build and install the plugin with cmake. For example, assuming a unix system and a `conda` environment:
@@ -55,14 +55,13 @@ The last two steps may need superuser access depending on the installation targe
 
 ## Test
 
-`cd` to the directory where you cloned the `openmm_..._plugin` sources. Then:
+`cd` to the directory where you cloned the `https://github.com/rfrancois92/OpenMM_SQL_Interface.git` sources. Then:
 
 ```
-cd build_openmm_sqlitefileplugin
+ cd build_openmm_sqlitefile_plugin/
+ cd platforms/reference/tests/
+ ./TestReferenceSqlitefile 
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<openmm_dir>/lib:<openmm_dir>lib/plugins
-./Test...
-```
 
 where `<openmm_dir>` is the OpenMM installation directory.
 
