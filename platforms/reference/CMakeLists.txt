@@ -1,0 +1,36 @@
+#---------------------------------------------------
+# OpenMM Example Plugin Reference Platform
+#----------------------------------------------------
+
+# Collect up information about the version of the OpenMM library we're building
+# and make it available to the code so it can be built into the binaries.
+
+SET(OPENMMSQLITEFILEREFERENCE_LIBRARY_NAME Sqlitefile)
+
+SET(SHARED_TARGET ${OPENMMSQLITEFILEREFERENCE_LIBRARY_NAME})
+
+
+# These are all the places to search for header files which are
+# to be part of the API.
+SET(API_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include" "${CMAKE_CURRENT_SOURCE_DIR}/include/internal")
+
+# Locate header files.
+SET(API_INCLUDE_FILES)
+FOREACH(dir ${API_INCLUDE_DIRS})
+    FILE(GLOB fullpaths ${dir}/*.h)
+    SET(API_INCLUDE_FILES ${API_INCLUDE_FILES} ${fullpaths})
+ENDFOREACH(dir)
+
+# collect up source files
+SET(SOURCE_FILES) # empty
+SET(SOURCE_INCLUDE_FILES)
+
+FILE(GLOB_RECURSE src_files  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/src/*.c)
+FILE(GLOB incl_files ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h)
+SET(SOURCE_FILES         ${SOURCE_FILES}         ${src_files})   #append
+SET(SOURCE_INCLUDE_FILES ${SOURCE_INCLUDE_FILES} ${incl_files})
+INCLUDE_DIRECTORIES(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+INCLUDE_DIRECTORIES(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+SUBDIRS (tests)
