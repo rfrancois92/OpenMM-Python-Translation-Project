@@ -2,10 +2,10 @@
 
 *** WORK IN PROGRESS ***
 
-A plugin that ...
+A plugin that finds the electrostatic energy of the system using SQL and C++ code.
 
-Name E-mail
-Last Modified:
+Name E-mail Reginald Francois
+Last Modified: May 2017
 
 
 ## License
@@ -16,7 +16,7 @@ This software is released under the LGPL license
 
 
 
-The plugin interface is based on the [openmmexampleplugin](https://github.com/peastman/openmmexampleplugin) by Peter Eastman.
+The plugin interface is based on the [openmmexampleplugin]( by Reginald Francois.
 
 ## Installation
 
@@ -58,8 +58,8 @@ The last two steps may need superuser access depending on the installation targe
 `cd` to the directory where you cloned the `openmm_..._plugin` sources. Then:
 
 ```
-cd example
-export OPENMM_PLUGIN_DIR=<openmm_dir>/lib/plugins
+cd build_openmm_sqlitefileplugin
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<openmm_dir>/lib:<openmm_dir>lib/plugins
 ./Test...
 ```
